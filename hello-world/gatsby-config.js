@@ -31,6 +31,7 @@ module.exports = {
           "Content-Type": "application/json"
         },
         data: {},
+        name: `gusuEntities`,
         schemaType: gusuEntity
       }
     }

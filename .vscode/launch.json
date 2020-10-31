@@ -7,6 +7,24 @@
             "request": "attach",
             "port": 9229,
             "preLaunchTask": "func: host start"
-        }
+        },
+        {
+            "name": "Gatsby develop",
+            "type": "pwa-node",
+            "request": "launch",
+            "program": "${workspaceRoot}/hello-world/node_modules/.bin/gatsby",
+            "args": ["develop"],
+            "runtimeArgs": ["--nolazy"],
+            "console": "integratedTerminal"
+          },
+          {
+            "name": "Gatsby build",
+            "type": "pwa-node",
+            "request": "launch",
+            "program": "${workspaceRoot}/hello-world/node_modules/.bin/gatsby",
+            "args": ["build"],
+            "runtimeArgs": ["--nolazy"],
+            "console": "integratedTerminal"
+          }
     ]
 }
