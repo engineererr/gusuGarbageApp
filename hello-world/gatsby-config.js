@@ -4,6 +4,11 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+const gusuEntity = {
+  id: 1,
+  name: 'string'
+}
+
 module.exports = {
   siteMetadata: {
     title: `Gusu.ch`,
@@ -26,6 +31,7 @@ module.exports = {
           "Content-Type": "application/json"
         },
         data: {},
+        schemaType: gusuEntity
       }
     }
 
