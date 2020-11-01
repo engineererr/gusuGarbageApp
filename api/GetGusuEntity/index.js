@@ -1,21 +1,42 @@
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    //const name = (req.query.name || (req.body && req.body.name));
-    //const responseMessage = name
-    //    ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-    //    : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-    const responseMessage = {
-        data: [
-            {
-                id: 1,
-                name: "dominique"
-            },
-            {   
-            id: 2,
-            name: "kai"
+    const name = (req.query.name || (req.body && req.body.name));
+
+    var responseMessage;
+    if(name){
+        if(name == "dominique"){
+            responseMessage = {
+                data: [
+                    {
+                        id: 1,
+                        name: "dominique"
+                    }
+                ]
             }
-        ]
+        }else if(name == "kai"){
+            responseMessage = {
+                data: [
+                    {   
+                    id: 2,
+                    name: "kai"
+                    }
+                ]
+            }
+        }
+    }else{
+        responseMessage = {
+            data: [
+                {
+                    id: 1,
+                    name: "dominique"
+                },
+                {   
+                id: 2,
+                name: "kai"
+                }
+            ]
+        }
     }
     context.res = {
         // status: 200, /* Defaults to 200 */

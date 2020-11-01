@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-export const Button = styled.button`
+export const Button = styled.s`
   background: transparent;
   border-radius: 3px;
   border: 2px solid palevioletred;
