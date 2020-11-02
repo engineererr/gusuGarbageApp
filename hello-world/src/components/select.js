@@ -14,6 +14,7 @@ export default class CustomSelect extends React.Component {
           options={this.props.options}
           onSelectResetsInput={false}
           onChange={this.props.onChange}
+          defaultValue={this.props.defaultValue}
         />
       </div>
     )

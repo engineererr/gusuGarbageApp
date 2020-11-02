@@ -1,16 +1,18 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Button } from "./button"
+import PropTypes from "prop-types"
 import CustomSelect from "./select"
+import withLocation from "./withLocation";
 
 const options = [
   { value: "dominique", label: "Dominique" },
   { value: "kai", label: "Kai" },
 ]
 
-export default function GusuTable() {
+function GusuTable( {search }) {
+  const { name } = search
   const [state, setState] = useState({
-    selected: "empty",
+    selected: name,
   })
   const data = useStaticQuery(
     graphql`
@@ -40,17 +42,30 @@ export default function GusuTable() {
     return res
   }
 
+  const getDefaultValue = (name) => {
+    let res = data.internalGusuEntities.text.data.filter((node) => node.name == name).map(node => ({
+      value: node.alternative_id,
+      label: node.name,
+    }))
+    return res
+  }
+  
   //<Button primary>I'm a button</Button>
   return (
     <div>
       <h1>This will be the gusu table.</h1>
-      <CustomSelect options={getOptions()} onChange={handleInputChange} />
-      <p>Selected : {state.selected}</p>
+      <CustomSelect options={getOptions()} onChange={handleInputChange} defaultValue={getDefaultValue(name)}/>
       <ul>
-        {data.internalGusuEntities.text.data.map(node => (
+        {data.internalGusuEntities.text.data.filter((node) => node.name == state.selected).map(node => (
           <li key={node.alternative_id}>{node.name}</li>
         ))}
       </ul>
     </div>
   )
 }
+
+GusuTable.propTypes = {
+  search: PropTypes.object,
+}
+
+export default withLocation(GusuTable)

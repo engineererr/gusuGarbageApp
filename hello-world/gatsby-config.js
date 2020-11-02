@@ -25,14 +25,18 @@ module.exports = {
       resolve: `gatsby-source-apiserver`,
       options: {
         typePrefix: "internal__",
-        url: `https://green-pebble-083ffca03.azurestaticapps.net/api/gusuEntity`,
-        method: "get",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        data: {},
-        name: `gusuEntities`,
-        schemaType: gusuEntity
+        entitiesArray: [
+          {
+            url: `https://green-pebble-083ffca03.azurestaticapps.net/api/gusuEntity`,
+            method: "get",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            data: {},
+            name: `gusuEntities`,
+            schemaType: gusuEntity
+          },
+        ]
       }
     },
     {
