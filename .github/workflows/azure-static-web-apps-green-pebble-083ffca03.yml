@@ -21,7 +21,7 @@ jobs:
       - name: Build Gatsby Site
         uses: jzweifel/gatsby-cli-github-action@master
         env:
-          GATSBY_PROJECT_PATH: "./hello-world",
+          GATSBY_PROJECT_PATH: "./hello-world"
           AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         with:
           gatsby-arg: build
