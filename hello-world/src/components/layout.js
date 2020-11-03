@@ -30,6 +30,7 @@ export default function Layout({ children }) {
             <ListLink to="/">Home</ListLink>
             <ListLink to="/blog">Blog</ListLink>
             <ListLink to="/gusucalendar">GusuCalendar</ListLink>
+            <ListLink to="/gusucalendarazuretable">GusuCalendarAzureStorage</ListLink>
             <ListLink to="/about">About</ListLink>
           </ul>
         </header>

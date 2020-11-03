@@ -3,6 +3,9 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const gusuEntity = {
   id: 1,
@@ -48,5 +51,15 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-source-azure-storage",
+      options: {
+        tables: [
+          {
+            name: "gusuEntities"
+          }
+        ]
+      }
+    }
   ],
 }
